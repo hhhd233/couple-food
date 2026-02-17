@@ -12,155 +12,91 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',-apple-system,sans-serif;}
-:root{
-  --pink:#ff6b81;--pink-light:#fff0f3;--pink-mid:#ffd6dd;
-  --green:#9EB5A3;--gray:#666;--shadow:0 4px 16px rgba(255,107,129,0.15);
-}
+:root{--pink:#ff6b81;--pink-light:#fff0f3;--pink-mid:#ffd6dd;--green:#9EB5A3;--gray:#666;--shadow:0 4px 16px rgba(255,107,129,0.15);}
 body{background:#fff7f9;min-height:100vh;}
 
-/* 顶栏 */
-header{
-  background:linear-gradient(135deg,#ff6b81,#ff8fa3);
-  color:white;padding:14px 18px;
-  display:flex;justify-content:space-between;align-items:center;
-  box-shadow:0 2px 12px rgba(255,107,129,0.3);
-  position:sticky;top:0;z-index:100;
-}
+header{background:linear-gradient(135deg,#ff6b81,#ff8fa3);color:white;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 12px rgba(255,107,129,0.3);position:sticky;top:0;z-index:100;}
 .logo{font-size:18px;font-weight:600;}
-.header-btns{display:flex;gap:8px;}
-.header-btns button{
-  background:rgba(255,255,255,0.2);color:white;
-  border:1px solid rgba(255,255,255,0.4);
-  padding:6px 12px;border-radius:20px;cursor:pointer;font-size:12px;
-  transition:all 0.2s;
-}
+.header-btns{display:flex;gap:6px;}
+.header-btns button{background:rgba(255,255,255,0.2);color:white;border:1px solid rgba(255,255,255,0.4);padding:6px 10px;border-radius:20px;cursor:pointer;font-size:12px;transition:all 0.2s;}
 .header-btns button:hover{background:rgba(255,255,255,0.35);}
 
-/* 主体 */
 #app{padding:16px;max-width:540px;margin:0 auto;}
 
-/* 模式切换 */
-.mode-tabs{
-  display:flex;background:white;border-radius:14px;
-  padding:4px;margin-bottom:14px;box-shadow:var(--shadow);
-}
-.mode-tab{
-  flex:1;padding:10px;border:none;background:transparent;
-  border-radius:10px;cursor:pointer;font-size:14px;font-weight:500;
-  color:var(--gray);transition:all 0.25s;
-}
-.mode-tab.active{
-  background:linear-gradient(135deg,#ff6b81,#ff8fa3);
-  color:white;box-shadow:0 2px 8px rgba(255,107,129,0.35);
-}
+.mode-tabs{display:flex;background:white;border-radius:14px;padding:4px;margin-bottom:14px;box-shadow:var(--shadow);}
+.mode-tab{flex:1;padding:10px;border:none;background:transparent;border-radius:10px;cursor:pointer;font-size:14px;font-weight:500;color:var(--gray);transition:all 0.25s;}
+.mode-tab.active{background:linear-gradient(135deg,#ff6b81,#ff8fa3);color:white;box-shadow:0 2px 8px rgba(255,107,129,0.35);}
 
-/* 卡片 */
-.card{
-  background:white;border-radius:16px;padding:18px;
-  margin-bottom:14px;box-shadow:var(--shadow);
-}
+.card{background:white;border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow);}
 .card-title{font-size:15px;font-weight:600;color:#333;margin-bottom:12px;}
 
-/* 按钮 */
-.btn{
-  width:100%;padding:13px;border:none;border-radius:12px;
-  cursor:pointer;font-size:14px;font-weight:600;
-  transition:all 0.25s;display:flex;align-items:center;
-  justify-content:center;gap:6px;
-}
-.btn-primary{
-  background:linear-gradient(135deg,#ff6b81,#ff8fa3);
-  color:white;box-shadow:0 4px 14px rgba(255,107,129,0.35);
-}
+.btn{width:100%;padding:13px;border:none;border-radius:12px;cursor:pointer;font-size:14px;font-weight:600;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.btn-primary{background:linear-gradient(135deg,#ff6b81,#ff8fa3);color:white;box-shadow:0 4px 14px rgba(255,107,129,0.35);}
 .btn-primary:hover{transform:translateY(-1px);}
-.btn-primary:active{transform:translateY(0);}
 .btn-secondary{background:white;color:var(--pink);border:2px solid var(--pink-mid);margin-top:8px;}
 .btn-secondary:hover{background:var(--pink-light);}
 
 /* 定位栏 */
-.location-bar{
-  display:flex;align-items:center;gap:8px;
-  background:var(--pink-light);border-radius:10px;
-  padding:10px 12px;margin-bottom:14px;font-size:13px;color:var(--gray);
-}
-.loc-dot{
-  width:8px;height:8px;border-radius:50%;background:#ccc;
-  flex-shrink:0;transition:background 0.3s;
-}
+.location-bar{display:flex;align-items:center;gap:8px;background:var(--pink-light);border-radius:10px;padding:10px 12px;margin-bottom:6px;font-size:13px;color:var(--gray);}
+.loc-dot{width:8px;height:8px;border-radius:50%;background:#ccc;flex-shrink:0;transition:background 0.3s;}
 .loc-dot.ok{background:#4caf50;}
 .loc-dot.spin{background:#ff9800;animation:pulse 1s infinite;}
 .loc-dot.fail{background:#f44336;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.loc-refresh{
-  margin-left:auto;background:none;border:none;
-  color:var(--pink);cursor:pointer;font-size:17px;
-  padding:2px 6px;border-radius:6px;
-}
-.loc-refresh:hover{background:var(--pink-mid);}
+.loc-btn{background:none;border:none;color:var(--pink);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:6px;white-space:nowrap;}
+.loc-btn:hover{background:var(--pink-mid);}
+.manual-loc-row{display:flex;gap:8px;margin-bottom:14px;}
+.manual-loc-row input{flex:1;padding:9px 12px;border:2px solid var(--pink-mid);border-radius:10px;font-size:13px;outline:none;}
+.manual-loc-row input:focus{border-color:var(--pink);}
+.manual-loc-row button{background:var(--pink);color:white;border:none;padding:9px 14px;border-radius:10px;cursor:pointer;font-size:13px;white-space:nowrap;}
 
-/* 用餐方式卡片 */
-.meal-card{
-  background:white;border-radius:16px;padding:20px;
-  margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;
-  display:flex;align-items:center;gap:14px;transition:all 0.25s;
-}
+/* 首页卡片 */
+.meal-card{background:white;border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;gap:14px;transition:all 0.25s;}
 .meal-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,129,0.2);}
 .meal-icon{font-size:38px;flex-shrink:0;}
 .meal-info{flex:1;}
 .meal-title{font-size:16px;font-weight:600;color:#333;}
 .meal-desc{font-size:12px;color:#999;margin-top:4px;line-height:1.5;}
-.meal-arrow{color:#ddd;font-size:20px;flex-shrink:0;}
+.meal-arrow{color:#ddd;font-size:20px;}
 
-/* 菜系筛选标签 */
+/* 菜系标签 */
 .cuisine-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
-.ctag{
-  padding:6px 12px;border-radius:20px;border:2px solid var(--pink-mid);
-  background:white;font-size:12px;cursor:pointer;transition:all 0.2s;color:var(--gray);
-}
+.ctag{padding:6px 12px;border-radius:20px;border:2px solid var(--pink-mid);background:white;font-size:12px;cursor:pointer;transition:all 0.2s;color:var(--gray);}
 .ctag.active{background:var(--pink);color:white;border-color:var(--pink);}
 
 /* 城市网格 */
 .city-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px;}
-.city-btn{
-  padding:10px 6px;border:2px solid var(--pink-mid);background:white;
-  border-radius:10px;cursor:pointer;font-size:13px;transition:all 0.2s;color:#333;
-}
+.city-btn{padding:10px 6px;border:2px solid var(--pink-mid);background:white;border-radius:10px;cursor:pointer;font-size:13px;transition:all 0.2s;color:#333;}
 .city-btn:hover,.city-btn.active{background:var(--pink);color:white;border-color:var(--pink);}
 
-/* 餐厅结果 */
+/* ════ 转盘 ════ */
+.wheel-wrap{display:flex;flex-direction:column;align-items:center;padding:10px 0 20px;}
+.wheel-outer{position:relative;width:300px;height:300px;margin:0 auto;}
+.wheel-canvas{border-radius:50%;box-shadow:0 4px 20px rgba(255,107,129,0.3);}
+.wheel-pointer{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:32px;line-height:1;z-index:10;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));}
+.wheel-center-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:white;border:none;cursor:pointer;font-size:22px;box-shadow:0 2px 10px rgba(0,0,0,0.15);z-index:10;transition:all 0.2s;}
+.wheel-center-btn:hover{transform:translate(-50%,-50%) scale(1.1);}
+.wheel-center-btn:active{transform:translate(-50%,-50%) scale(0.95);}
+.wheel-result{margin-top:16px;text-align:center;}
+.wheel-result-name{font-size:22px;font-weight:700;color:#333;}
+.wheel-result-cat{font-size:13px;color:#999;margin:4px 0 12px;}
+.wheel-result-desc{font-size:13px;color:var(--gray);background:var(--pink-light);border-radius:10px;padding:10px 14px;line-height:1.7;margin-bottom:14px;}
+
+/* 餐厅卡片 */
 .poi-group{margin-bottom:16px;}
-.poi-group-title{
-  font-size:14px;font-weight:600;color:#333;
-  margin-bottom:10px;display:flex;align-items:center;gap:6px;
-}
-.poi-count{
-  background:var(--pink-light);color:var(--pink);
-  font-size:11px;padding:2px 8px;border-radius:10px;
-}
-.poi-item{
-  background:white;border-radius:12px;padding:14px;
-  margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);
-  transition:all 0.2s;
-}
+.poi-group-title{font-size:14px;font-weight:600;color:#333;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.poi-count{background:var(--pink-light);color:var(--pink);font-size:11px;padding:2px 8px;border-radius:10px;}
+.poi-item{background:white;border-radius:12px;padding:14px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:all 0.2s;}
 .poi-item:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.1);}
 .poi-name{font-size:15px;font-weight:600;color:#333;margin-bottom:6px;}
 .poi-addr{font-size:12px;color:#999;margin-bottom:8px;line-height:1.5;}
 .poi-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.poi-actions a{
-  padding:9px;border-radius:8px;text-decoration:none;
-  font-size:12px;font-weight:600;display:flex;
-  align-items:center;justify-content:center;gap:4px;transition:all 0.2s;
-}
+.poi-actions a{padding:9px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:4px;transition:all 0.2s;}
 .a-mt{background:#FFD100;color:#333;}
-.a-mt:hover{background:#ffc800;}
 .a-el{background:#0089FF;color:white;}
-.a-el:hover{background:#007ae0;}
 
 /* 菜谱 */
-.recipe-item{
-  background:white;border-radius:12px;padding:16px;
-  margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);
-}
+.recipe-item{background:white;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);}
 .recipe-name{font-size:16px;font-weight:600;color:#333;margin-bottom:10px;}
 .recipe-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
 .badge{padding:3px 8px;border-radius:8px;font-size:11px;font-weight:500;}
@@ -168,86 +104,58 @@ header{
 .b-diff{background:#e8f5e9;color:#2e7d32;}
 .b-spicy{background:#fce4ec;color:#c62828;}
 .b-match{background:var(--pink-light);color:var(--pink);}
-.recipe-toggle{
-  width:100%;padding:9px;border:2px solid var(--pink-mid);
-  background:white;border-radius:8px;cursor:pointer;
-  font-size:13px;color:var(--pink);font-weight:500;transition:all 0.2s;
-}
+.recipe-toggle{width:100%;padding:9px;border:2px solid var(--pink-mid);background:white;border-radius:8px;cursor:pointer;font-size:13px;color:var(--pink);font-weight:500;transition:all 0.2s;}
 .recipe-toggle:hover{background:var(--pink-light);}
 .recipe-detail{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--pink-mid);}
 .recipe-detail.open{display:block;}
 .recipe-section{margin-bottom:14px;}
 .recipe-section h4{font-size:13px;color:#333;margin-bottom:8px;font-weight:600;}
-.recipe-section li{
-  font-size:13px;color:var(--gray);line-height:1.9;
-  padding-left:14px;position:relative;list-style:none;
-}
+.recipe-section li{font-size:13px;color:var(--gray);line-height:1.9;padding-left:14px;position:relative;list-style:none;}
 .recipe-section li::before{content:"•";position:absolute;left:0;color:var(--pink);}
-.recipe-tip{
-  background:#fff8e1;border-left:3px solid #ffc107;
-  padding:10px 12px;border-radius:0 8px 8px 0;
-  font-size:12px;color:#666;line-height:1.6;
-}
+.recipe-tip{background:#fff8e1;border-left:3px solid #ffc107;padding:10px 12px;border-radius:0 8px 8px 0;font-size:12px;color:#666;line-height:1.6;}
 
 /* 偏好设置 */
 .pref-section{margin-bottom:18px;}
 .pref-section label{display:block;font-size:13px;font-weight:600;color:#333;margin-bottom:8px;}
-.pref-section select{
-  width:100%;padding:10px 12px;border:2px solid #ddd;
-  border-radius:10px;font-size:14px;color:#333;background:white;
-}
+.pref-section select{width:100%;padding:10px 12px;border:2px solid #ddd;border-radius:10px;font-size:14px;color:#333;background:white;}
 .pref-options{display:flex;flex-wrap:wrap;gap:8px;}
-.pref-btn{
-  padding:7px 14px;border:2px solid #ddd;background:white;
-  border-radius:10px;cursor:pointer;font-size:13px;transition:all 0.2s;color:#333;
-}
+.pref-btn{padding:7px 14px;border:2px solid #ddd;background:white;border-radius:10px;cursor:pointer;font-size:13px;transition:all 0.2s;color:#333;}
 .pref-btn.selected{background:var(--pink);color:white;border-color:var(--pink);}
 
+/* 自定义菜品管理 */
+.custom-dish-list{max-height:200px;overflow-y:auto;margin-bottom:12px;}
+.custom-dish-item{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:#f9f9f9;border-radius:8px;margin-bottom:6px;font-size:13px;}
+.del-dish-btn{background:none;border:none;color:#f44336;cursor:pointer;font-size:16px;padding:0 4px;}
+.add-dish-row{display:flex;gap:8px;margin-top:8px;}
+.add-dish-row input{flex:1;padding:8px 10px;border:2px solid #ddd;border-radius:8px;font-size:13px;}
+.add-dish-row select{padding:8px;border:2px solid #ddd;border-radius:8px;font-size:13px;color:#333;}
+.add-dish-row button{background:var(--pink);color:white;border:none;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:13px;white-space:nowrap;}
+
 /* 弹窗 */
-.modal{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,0.45);z-index:999;
-  align-items:flex-end;justify-content:center;
-}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:999;align-items:flex-end;justify-content:center;}
 .modal.show{display:flex;}
-.modal-box{
-  background:white;border-radius:24px 24px 0 0;
-  padding:28px 20px 40px;width:100%;max-width:540px;
-  max-height:88vh;overflow-y:auto;animation:slideUp 0.3s ease;
-}
+.modal-box{background:white;border-radius:24px 24px 0 0;padding:28px 20px 40px;width:100%;max-width:540px;max-height:88vh;overflow-y:auto;animation:slideUp 0.3s ease;}
 @keyframes slideUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
-.modal-handle{
-  width:40px;height:4px;background:#ddd;
-  border-radius:2px;margin:0 auto 20px;
-}
+.modal-handle{width:40px;height:4px;background:#ddd;border-radius:2px;margin:0 auto 20px;}
 .modal-title{font-size:18px;font-weight:600;color:#333;margin-bottom:20px;}
 
 /* 选择困难弹窗 */
 .giveup-modal{align-items:center;padding:20px;}
-.giveup-box{
-  background:white;border-radius:24px;padding:32px 24px;
-  max-width:360px;width:100%;text-align:center;
-  animation:popIn 0.3s cubic-bezier(.34,1.56,.64,1);
-}
+.giveup-box{background:white;border-radius:24px;padding:32px 24px;max-width:360px;width:100%;text-align:center;animation:popIn 0.3s cubic-bezier(.34,1.56,.64,1);}
 @keyframes popIn{from{transform:scale(0.8);opacity:0}to{transform:scale(1);opacity:1}}
 .giveup-emoji{font-size:64px;margin-bottom:16px;display:block;animation:wobble 0.6s ease;}
 @keyframes wobble{0%,100%{transform:rotate(0)}25%{transform:rotate(-10deg)}75%{transform:rotate(10deg)}}
 .giveup-title{font-size:20px;font-weight:600;color:#333;margin-bottom:10px;}
 .giveup-text{font-size:14px;color:#888;line-height:1.8;margin-bottom:24px;}
 
-/* 杂项 */
 .counter{text-align:center;font-size:12px;color:#bbb;margin-top:6px;}
 .loading{text-align:center;padding:32px;color:#aaa;font-size:14px;}
 .empty{text-align:center;padding:40px 20px;color:#bbb;font-size:14px;}
-input.text-input{
-  width:100%;padding:10px 12px;border:2px solid #eee;
-  border-radius:10px;font-size:14px;margin-top:8px;
-}
+.text-input{width:100%;padding:10px 12px;border:2px solid #eee;border-radius:10px;font-size:14px;}
 </style>
 </head>
 <body>
 
-<!-- 顶栏 -->
 <header>
   <div class="logo">💕 今天吃什么</div>
   <div class="header-btns">
@@ -257,27 +165,31 @@ input.text-input{
 </header>
 
 <div id="app">
-
   <!-- 模式切换 -->
   <div class="mode-tabs">
     <button class="mode-tab active" onclick="switchMode('couple',this)">💑 双人模式</button>
     <button class="mode-tab" onclick="switchMode('solo',this)">🧑 单人模式</button>
   </div>
 
-  <!-- 定位栏 -->
+  <!-- 定位栏 + 手动输入 -->
   <div class="location-bar">
     <div class="loc-dot" id="locDot"></div>
-    <span id="locText">准备定位...</span>
-    <button class="loc-refresh" onclick="getLocation()" title="刷新定位">↻</button>
+    <span id="locText" style="flex:1;">准备定位...</span>
+    <button class="loc-btn" onclick="getLocation()" title="自动定位">↻ 自动</button>
+    <button class="loc-btn" onclick="toggleManualInput()" title="手动输入">📍 手动</button>
+  </div>
+  <div id="manualInputRow" class="manual-loc-row" style="display:none;">
+    <input id="manualAddrInput" placeholder="输入地址，如：南宁市青秀区万达广场" />
+    <button onclick="useManualAddr()">确认</button>
   </div>
 
-  <!-- 首页：选择用餐方式 -->
+  <!-- 首页 -->
   <div id="homeSection">
     <div class="meal-card" onclick="showTakeout()">
       <div class="meal-icon">🛵</div>
       <div class="meal-info">
         <div class="meal-title">点外卖</div>
-        <div class="meal-desc">搜索附近真实餐厅，按菜系分类<br>一键跳转美团 / 饿了么下单</div>
+        <div class="meal-desc">转盘随机推荐一道菜 · 搜索附近餐厅 · 一键下单</div>
       </div>
       <div class="meal-arrow">›</div>
     </div>
@@ -285,7 +197,7 @@ input.text-input{
       <div class="meal-icon">🍳</div>
       <div class="meal-info">
         <div class="meal-title">在家做</div>
-        <div class="meal-desc">根据家乡推荐家常菜<br>详细食材 + 步骤 + 小贴士</div>
+        <div class="meal-desc">根据家乡推荐家常菜 · 详细食材步骤</div>
       </div>
       <div class="meal-arrow">›</div>
     </div>
@@ -295,9 +207,9 @@ input.text-input{
   <div id="takeoutSection" style="display:none;">
     <button class="btn btn-secondary" onclick="backHome()">← 返回</button>
 
-    <!-- 无定位时显示城市选择 -->
+    <!-- 无定位时城市选择 -->
     <div id="citySection" class="card" style="display:none;margin-top:14px;">
-      <div class="card-title">📍 定位失败，请手动选择城市</div>
+      <div class="card-title">📍 请先设置位置</div>
       <div class="city-grid">
         <button class="city-btn" onclick="pickCity('南宁',this)">南宁</button>
         <button class="city-btn" onclick="pickCity('北京',this)">北京</button>
@@ -308,15 +220,15 @@ input.text-input{
         <button class="city-btn" onclick="pickCity('武汉',this)">武汉</button>
         <button class="city-btn" onclick="pickCity('杭州',this)">杭州</button>
       </div>
-      <input id="customCity" class="text-input" placeholder="或输入其他城市名称">
-      <button class="btn btn-primary" style="margin-top:10px;" onclick="useCustomCity()">使用此城市搜索</button>
+      <input id="customCity" class="text-input" placeholder="或输入其他城市" style="margin-top:8px;">
+      <button class="btn btn-primary" style="margin-top:10px;" onclick="useCustomCity()">使用此城市</button>
     </div>
 
-    <!-- 搜索面板 -->
-    <div class="card" style="margin-top:14px;" id="searchPanel">
-      <div class="card-title">🔍 选择菜系</div>
+    <!-- 转盘区域 -->
+    <div class="card" style="margin-top:14px;">
+      <div class="card-title">🎯 选个菜系，转盘决定吃什么！</div>
       <div class="cuisine-filter" id="cuisineFilter">
-        <span class="ctag active" onclick="pickCuisine(this,'餐厅')">🍽 全部</span>
+        <span class="ctag active" onclick="pickCuisine(this,'全部')">🍽 随机</span>
         <span class="ctag" onclick="pickCuisine(this,'火锅')">🍲 火锅</span>
         <span class="ctag" onclick="pickCuisine(this,'烧烤')">🍖 烧烤</span>
         <span class="ctag" onclick="pickCuisine(this,'日料')">🍣 日料</span>
@@ -325,9 +237,27 @@ input.text-input{
         <span class="ctag" onclick="pickCuisine(this,'轻食')">🥗 轻食</span>
         <span class="ctag" onclick="pickCuisine(this,'麻辣烫')">🌶 麻辣烫</span>
         <span class="ctag" onclick="pickCuisine(this,'烧腊')">🍗 烧腊</span>
+        <span class="ctag" onclick="pickCuisine(this,'甜品')">🧋 甜品</span>
+        <span class="ctag" onclick="pickCuisine(this,'西餐')">🥩 西餐</span>
+        <span class="ctag" onclick="pickCuisine(this,'东南亚')">🍛 东南亚</span>
       </div>
-      <button class="btn btn-primary" onclick="searchFood()">🔍 搜索附近餐厅</button>
-      <div class="counter" id="searchCounter"></div>
+
+      <!-- 转盘 -->
+      <div class="wheel-wrap">
+        <div class="wheel-outer">
+          <div class="wheel-pointer">▼</div>
+          <canvas id="wheelCanvas" class="wheel-canvas" width="300" height="300"></canvas>
+          <button class="wheel-center-btn" onclick="spinWheel()">🎲</button>
+        </div>
+        <div class="wheel-result" id="wheelResult" style="display:none;">
+          <div class="wheel-result-name" id="wrName"></div>
+          <div class="wheel-result-cat" id="wrCat"></div>
+          <div class="wheel-result-desc" id="wrDesc"></div>
+          <button class="btn btn-primary" onclick="searchNearby()">🔍 搜索附近能点这道菜的餐厅</button>
+          <button class="btn btn-secondary" onclick="spinWheel()">🔄 再转一次</button>
+        </div>
+        <div class="counter" id="searchCounter"></div>
+      </div>
     </div>
 
     <div id="takeoutResult"></div>
@@ -337,18 +267,15 @@ input.text-input{
   <div id="cookingSection" style="display:none;">
     <button class="btn btn-secondary" onclick="backHome()">← 返回</button>
     <div class="card" style="margin-top:14px;">
-      <div class="card-title">
-        🍳 <span id="provinceLabel">家常菜</span>推荐
-      </div>
+      <div class="card-title">🍳 <span id="provinceLabel">家常菜</span>推荐</div>
       <button class="btn btn-primary" onclick="showRecipes()">✨ 帮我推荐今天做什么</button>
       <div class="counter" id="recipeCounter"></div>
     </div>
     <div id="recipeResult"></div>
   </div>
-
 </div>
 
-<!-- ── 偏好设置弹窗 ── -->
+<!-- 偏好设置弹窗 -->
 <div class="modal" id="settingsModal">
   <div class="modal-box">
     <div class="modal-handle"></div>
@@ -362,13 +289,10 @@ input.text-input{
         <option value="广西">广西</option>
         <option value="江浙沪">江浙沪</option>
         <option value="湖南">湖南</option>
-        <option value="湖北">湖北</option>
-        <option value="福建">福建</option>
-        <option value="云南">云南</option>
         <option value="东北">东北</option>
         <option value="山东">山东</option>
         <option value="陕西">陕西</option>
-        <option value="北方">北方（京津冀）</option>
+        <option value="通用">通用</option>
       </select>
     </div>
     <div class="pref-section">
@@ -383,111 +307,319 @@ input.text-input{
       <label>🎯 饮食目标</label>
       <div class="pref-options" id="prefDiet"></div>
     </div>
+
+    <!-- 自定义菜品 -->
+    <div class="pref-section">
+      <label>➕ 自定义外卖菜品（会出现在转盘中）</label>
+      <div class="custom-dish-list" id="customDishList"></div>
+      <div class="add-dish-row">
+        <input id="newDishName" placeholder="菜品名，如：臭豆腐">
+        <select id="newDishCat">
+          <option value="全部">随机</option>
+          <option value="火锅">火锅</option>
+          <option value="烧烤">烧烤</option>
+          <option value="日料">日料</option>
+          <option value="快餐">快餐</option>
+          <option value="粥粉面">粥粉面</option>
+          <option value="轻食">轻食</option>
+          <option value="麻辣烫">麻辣烫</option>
+          <option value="烧腊">烧腊</option>
+          <option value="甜品">甜品</option>
+          <option value="西餐">西餐</option>
+          <option value="东南亚">东南亚</option>
+        </select>
+        <button onclick="addCustomDish()">添加</button>
+      </div>
+    </div>
+
     <button class="btn btn-primary" onclick="saveSettings()">💾 保存设置</button>
     <button class="btn btn-secondary" onclick="closeSettings()">取消</button>
   </div>
 </div>
 
-<!-- ── 选择困难弹窗 ── -->
+<!-- 选择困难弹窗 -->
 <div class="modal giveup-modal" id="giveupModal">
   <div class="giveup-box">
     <span class="giveup-emoji">😭</span>
     <div class="giveup-title">选择困难症发作啦！</div>
-    <div class="giveup-text">
-      已经换了 <strong id="giveupCount">4</strong> 次了...<br>
-      人家真的尽力了呢 (｡•́︿•̀｡)<br>
-      要不让系统帮你们随机决定？
-    </div>
-    <button class="btn btn-primary" onclick="randomPick()">🎲 随机帮我选一个！</button>
+    <div class="giveup-text">已经转了 <strong id="giveupCount">4</strong> 次了...<br>人家真的尽力了呢 (｡•́︿•̀｡)<br>就这个吧？</div>
+    <button class="btn btn-primary" onclick="randomFinal()">🎲 就选这个！</button>
     <button class="btn btn-secondary" onclick="restartAll()">🔄 重新开始</button>
-    <button class="btn btn-secondary" onclick="closeGiveup()">👀 继续看当前结果</button>
+    <button class="btn btn-secondary" onclick="closeGiveup()">👀 继续看</button>
   </div>
 </div>
 
 <script>
-// ══════════════════════════════════════════
-//  全局状态
-// ══════════════════════════════════════════
-let apiKey  = localStorage.getItem("amap_api_key");
-let prefs   = JSON.parse(localStorage.getItem("prefs")||'{"province":"","dislikes":[],"spicy":"微辣","diet":"正常饮食"}');
-let loc     = null;   // {lat, lng}
+// ══════════════════════════════
+//  状态
+// ══════════════════════════════
+let apiKey = localStorage.getItem("amap_api_key");
+let prefs  = JSON.parse(localStorage.getItem("prefs")||'{"province":"","dislikes":[],"spicy":"微辣","diet":"正常饮食"}');
+let customDishes = JSON.parse(localStorage.getItem("customDishes")||"[]");
+let loc = null;
 let manualCity = "";
 let curMode = "couple";
-let curKeyword = "餐厅";
-let searchCount = 0;
+let curCategory = "全部";
+let spinCount = 0;
 let recipeCount = 0;
-let allPois    = [];
+let curDish = null;
+let allPois = [];
 let allRecipes = [];
+let wheelItems = [];
+let wheelAngle = 0;
+let isSpinning = false;
 
-// ══════════════════════════════════════════
-//  初始化
-// ══════════════════════════════════════════
-window.onload = () => {
-  if (!apiKey) {
-    apiKey = prompt("🔑 请输入高德地图 Web 服务 API Key\n\n还没有？访问 https://lbs.amap.com/ 免费获取");
-    if (apiKey) localStorage.setItem("amap_api_key", apiKey);
-  }
-  buildPrefUI();
-  getLocation();
-  if (prefs.province) {
-    document.getElementById("prefProvince").value = prefs.province;
-    updateProvinceLabel();
-  }
+// ══════════════════════════════
+//  菜品数据库（150道）
+// ══════════════════════════════
+const DISH_DB = {
+  "火锅":[
+    {name:"毛肚火锅",emoji:"🍲",desc:"麻辣鲜香，毛肚脆嫩，重庆经典",search:"火锅"},
+    {name:"鸳鸯锅",emoji:"🫕",desc:"一半红汤一半清汤，照顾两种口味",search:"火锅"},
+    {name:"番茄火锅",emoji:"🍅",desc:"酸甜清爽不上火，健康首选",search:"番茄火锅"},
+    {name:"椰子鸡火锅",emoji:"🥥",desc:"清甜椰汁底料，鲜嫩无比",search:"椰子鸡"},
+    {name:"猪肚鸡火锅",emoji:"🐔",desc:"浓郁白汤，暖胃滋补",search:"猪肚鸡"},
+    {name:"串串香",emoji:"🍢",desc:"火锅变串串，麻辣过瘾",search:"串串香"},
+    {name:"羊蝎子锅",emoji:"🦴",desc:"羊骨浓汤，冬天必备",search:"羊蝎子"},
+    {name:"虾滑锅",emoji:"🦐",desc:"新鲜虾滑配清汤，鲜嫩弹牙",search:"火锅"},
+    {name:"酸菜白肉锅",emoji:"🥬",desc:"东北风味，酸爽解腻",search:"酸菜白肉"},
+    {name:"海鲜火锅",emoji:"🦞",desc:"新鲜海鲜汇聚，鲜味十足",search:"海鲜火锅"},
+    {name:"豆浆火锅",emoji:"🥛",desc:"豆浆底料清甜，越煮越鲜",search:"火锅"},
+    {name:"冒菜",emoji:"🌶",desc:"一人份火锅，自选自配最爽",search:"冒菜"},
+  ],
+  "烧烤":[
+    {name:"烤羊肉串",emoji:"🍖",desc:"孜然辣椒，外焦里嫩",search:"烧烤"},
+    {name:"烤生蚝",emoji:"🦪",desc:"蒜蓉粉丝烤生蚝，鲜嫩多汁",search:"烤生蚝"},
+    {name:"烤五花肉",emoji:"🥩",desc:"配生菜包着吃，油脂丰富",search:"烧烤"},
+    {name:"烤鱿鱼",emoji:"🦑",desc:"Q弹鲜嫩，海鲜必点",search:"烤鱿鱼"},
+    {name:"烤玉米",emoji:"🌽",desc:"刷黄油蜂蜜，甜糯飘香",search:"烧烤"},
+    {name:"烤鸡翅",emoji:"🍗",desc:"外酥里嫩，烧烤必点",search:"烤鸡翅"},
+    {name:"烤韭菜",emoji:"🌿",desc:"蒜香四溢，配辣椒粉",search:"烧烤"},
+    {name:"烤茄子",emoji:"🍆",desc:"软糯入味，蒜蓉提香",search:"烤茄子"},
+    {name:"烤牛舌",emoji:"🐮",desc:"口感细腻，越嚼越香",search:"烤牛肉"},
+    {name:"烤大虾",emoji:"🦐",desc:"鲜甜弹牙，直接烤最好吃",search:"烤大虾"},
+    {name:"烤豆腐",emoji:"🍱",desc:"外脆里嫩，蘸辣椒酱",search:"烧烤"},
+    {name:"碳烤扇贝",emoji:"🐚",desc:"粉丝蒜蓉，鲜美无比",search:"烤扇贝"},
+  ],
+  "日料":[
+    {name:"三文鱼刺身",emoji:"🍣",desc:"新鲜肥美，入口即化",search:"日料"},
+    {name:"海鲜拉面",emoji:"🍜",desc:"浓郁汤底配丰富海鲜",search:"拉面"},
+    {name:"寿司拼盘",emoji:"🍱",desc:"各种口味一次满足",search:"寿司"},
+    {name:"炸猪排饭",emoji:"🍛",desc:"酥脆猪排配蛋汁米饭",search:"猪排饭"},
+    {name:"天妇罗",emoji:"🍤",desc:"轻盈酥脆，蘸汁更美",search:"天妇罗"},
+    {name:"牛肉丼",emoji:"🥩",desc:"嫩滑牛肉铺米饭",search:"牛肉丼"},
+    {name:"亲子丼",emoji:"🐔",desc:"鸡肉鸡蛋同碗，温暖治愈",search:"亲子丼"},
+    {name:"鳗鱼饭",emoji:"🐟",desc:"蒲烧鳗鱼，香甜软糯",search:"鳗鱼饭"},
+    {name:"章鱼烧",emoji:"🐙",desc:"外脆内嫩，街头小食",search:"章鱼烧"},
+    {name:"味噌拉面",emoji:"🍜",desc:"浓郁咸香，经典口味",search:"拉面"},
+    {name:"手卷寿司",emoji:"🌯",desc:"新鲜食材卷起来吃",search:"寿司"},
+    {name:"日式唐扬炸鸡",emoji:"🍗",desc:"外酥里嫩，配柠檬汁",search:"日料炸鸡"},
+  ],
+  "快餐":[
+    {name:"汉堡",emoji:"🍔",desc:"经典牛肉汉堡，配薯条可乐",search:"汉堡"},
+    {name:"炸鸡",emoji:"🍗",desc:"外皮酥脆，香辣多汁",search:"炸鸡"},
+    {name:"披萨",emoji:"🍕",desc:"厚底芝士，配料丰富",search:"披萨"},
+    {name:"鸡肉卷",emoji:"🌯",desc:"嫩鸡配蔬菜包薄饼",search:"鸡肉卷"},
+    {name:"薯条",emoji:"🍟",desc:"黄金酥脆，百吃不厌",search:"薯条"},
+    {name:"热狗",emoji:"🌭",desc:"经典美式，配芥末番茄酱",search:"热狗"},
+    {name:"墨西哥卷饼",emoji:"🫔",desc:"香辣牛肉配蔬菜，饱腹感强",search:"墨西哥卷饼"},
+    {name:"鸡块",emoji:"🍗",desc:"Q弹多汁，蘸酱超好吃",search:"麦当劳"},
+    {name:"鸡蛋汉堡",emoji:"🍔",desc:"嫩蛋配酱，简单满足",search:"汉堡"},
+    {name:"烤翅",emoji:"🍗",desc:"快餐版烤鸡翅，方便快捷",search:"肯德基"},
+    {name:"鱼柳堡",emoji:"🐟",desc:"嫩滑鱼柳配酱汁",search:"鱼柳堡"},
+    {name:"芝士汉堡",emoji:"🍔",desc:"双层芝士拉丝，满足感爆棚",search:"芝士汉堡"},
+  ],
+  "粥粉面":[
+    {name:"螺蛳粉",emoji:"🍜",desc:"酸辣鲜香，配酸笋腐竹花生",search:"螺蛳粉"},
+    {name:"牛肉粉",emoji:"🐄",desc:"浓郁牛骨汤，嫩滑牛肉片",search:"牛肉粉"},
+    {name:"皮蛋瘦肉粥",emoji:"🥣",desc:"绵滑细腻，广式经典",search:"粥"},
+    {name:"重庆小面",emoji:"🍝",desc:"麻辣鲜香，配豌豆葱花",search:"重庆小面"},
+    {name:"云吞面",emoji:"🍜",desc:"虾肉云吞配细面，鲜美爽滑",search:"云吞面"},
+    {name:"过桥米线",emoji:"🍲",desc:"云南特色，自己烫熟的乐趣",search:"米线"},
+    {name:"热干面",emoji:"🍜",desc:"武汉特色，芝麻酱拌面",search:"热干面"},
+    {name:"兰州拉面",emoji:"🍜",desc:"一清二白三红四绿，牛肉汤底",search:"兰州拉面"},
+    {name:"刀削面",emoji:"🍜",desc:"山西特色，汤汁浓郁",search:"刀削面"},
+    {name:"肠粉",emoji:"🍚",desc:"广式早茶必点，鲜滑顺口",search:"肠粉"},
+    {name:"炸酱面",emoji:"🍝",desc:"老北京经典，肉酱浓郁",search:"炸酱面"},
+    {name:"猪脚粉",emoji:"🐷",desc:"软糯猪脚配粉，南宁特色",search:"猪脚粉"},
+  ],
+  "轻食":[
+    {name:"鸡胸肉沙拉",emoji:"🥗",desc:"低卡高蛋白，清爽健康",search:"沙拉"},
+    {name:"三明治",emoji:"🥪",desc:"全麦三明治，营养均衡",search:"三明治"},
+    {name:"藜麦碗",emoji:"🫙",desc:"超级食物，搭配时蔬",search:"轻食"},
+    {name:"牛油果吐司",emoji:"🥑",desc:"网红早午餐，口感丰富",search:"轻食"},
+    {name:"鲜榨果汁+燕麦",emoji:"🥤",desc:"清爽组合，元气开始",search:"轻食"},
+    {name:"藕粉",emoji:"🍮",desc:"清淡滋补，饱腹感强",search:"轻食"},
+    {name:"蔬菜饭团",emoji:"🍙",desc:"日式饭团，便携健康",search:"饭团"},
+    {name:"凯撒沙拉",emoji:"🥗",desc:"脆生菜配帕玛森芝士",search:"沙拉"},
+    {name:"素食寿司",emoji:"🍱",desc:"蔬菜为主，清淡美味",search:"轻食"},
+    {name:"鸡蛋羹",emoji:"🥚",desc:"嫩滑鸡蛋羹，简单治愈",search:"轻食"},
+    {name:"水果麦片",emoji:"🫐",desc:"酸奶配新鲜水果麦片",search:"轻食"},
+    {name:"豆腐饭",emoji:"🥡",desc:"低热量豆腐配杂粮饭",search:"轻食"},
+  ],
+  "麻辣烫":[
+    {name:"麻辣烫",emoji:"🌶",desc:"自选食材，麻辣鲜香",search:"麻辣烫"},
+    {name:"冒菜",emoji:"🍲",desc:"一人份火锅，超级满足",search:"冒菜"},
+    {name:"酸辣粉",emoji:"🍜",desc:"Q弹粉条，酸辣开胃",search:"酸辣粉"},
+    {name:"麻辣香锅",emoji:"🥘",desc:"干锅版，汤汁少更入味",search:"麻辣香锅"},
+    {name:"冷串串",emoji:"🍢",desc:"凉拌版串串，夏日特色",search:"冷串串"},
+    {name:"鱼蛋粉",emoji:"🐟",desc:"香港风味鱼蛋，弹牙鲜美",search:"鱼蛋粉"},
+    {name:"砵仔糕",emoji:"🍮",desc:"街边小食，Q弹甜糯",search:"砵仔糕"},
+    {name:"钵钵鸡",emoji:"🐔",desc:"四川特色，麻辣鲜香",search:"钵钵鸡"},
+    {name:"杨国福麻辣烫",emoji:"🌶",desc:"加麻酱的特色麻辣烫",search:"杨国福"},
+    {name:"张亮麻辣烫",emoji:"🍲",desc:"骨汤底料，鲜香不上火",search:"张亮麻辣烫"},
+  ],
+  "烧腊":[
+    {name:"烧鸭饭",emoji:"🦆",desc:"皮脆肉嫩，广式经典",search:"烧鸭"},
+    {name:"叉烧饭",emoji:"🍖",desc:"蜜汁焦香，百吃不厌",search:"叉烧"},
+    {name:"白切鸡饭",emoji:"🐔",desc:"皮滑肉嫩，蘸姜葱酱",search:"白切鸡"},
+    {name:"烧肉饭",emoji:"🥩",desc:"脆皮烧肉，皮酥肉香",search:"烧肉"},
+    {name:"卤鹅饭",emoji:"🦢",desc:"潮汕卤鹅，卤汁浓郁",search:"卤鹅"},
+    {name:"豉油鸡饭",emoji:"🐔",desc:"酱香浓郁，肉质嫩滑",search:"豉油鸡"},
+    {name:"烧乳猪",emoji:"🐷",desc:"外皮酥脆，肉质嫩滑",search:"烧乳猪"},
+    {name:"卤猪脚饭",emoji:"🐷",desc:"软糯入味，胶质丰富",search:"卤猪脚"},
+    {name:"盐焗鸡",emoji:"🍗",desc:"盐香四溢，皮脆肉嫩",search:"盐焗鸡"},
+    {name:"烤乳鸽",emoji:"🐦",desc:"皮脆骨酥，广式名菜",search:"烤乳鸽"},
+  ],
+  "甜品":[
+    {name:"芒果班戟",emoji:"🥭",desc:"软糯班戟皮包新鲜芒果奶油",search:"甜品"},
+    {name:"奶茶",emoji:"🧋",desc:"珍珠奶茶，下午茶必备",search:"奶茶"},
+    {name:"冰淇淋",emoji:"🍦",desc:"多种口味，夏日必备",search:"冰淇淋"},
+    {name:"杨枝甘露",emoji:"🥭",desc:"芒果椰奶西米，清甜解暑",search:"甜品"},
+    {name:"蛋糕",emoji:"🎂",desc:"戚风蛋糕或慕斯，软绵可口",search:"蛋糕"},
+    {name:"红豆沙",emoji:"🍮",desc:"广式糖水，暖心暖胃",search:"糖水"},
+    {name:"双皮奶",emoji:"🥛",desc:"顺滑嫩白，广式经典甜品",search:"双皮奶"},
+    {name:"汤圆",emoji:"⚪",desc:"糯米包豆沙，甜蜜软糯",search:"汤圆"},
+    {name:"布丁",emoji:"🍮",desc:"嫩滑布丁，焦糖香甜",search:"布丁"},
+    {name:"可丽饼",emoji:"🥞",desc:"薄脆饼皮配各种馅料",search:"可丽饼"},
+    {name:"冰沙",emoji:"🍧",desc:"绵密冰沙配各种料",search:"刨冰"},
+    {name:"芝麻糊",emoji:"⚫",desc:"浓郁芝麻香，冬日暖品",search:"糖水"},
+  ],
+  "西餐":[
+    {name:"牛排",emoji:"🥩",desc:"厚切牛排，外焦里嫩",search:"牛排"},
+    {name:"意大利面",emoji:"🍝",desc:"番茄肉酱面，浓郁鲜美",search:"意大利面"},
+    {name:"烤鸡腿",emoji:"🍗",desc:"香草腌制烤鸡，外皮金黄",search:"西餐"},
+    {name:"法式洋葱汤",emoji:"🧅",desc:"浓郁洋葱汤配芝士面包",search:"西餐"},
+    {name:"海鲜意面",emoji:"🦞",desc:"黑椒或白酱海鲜意面",search:"海鲜意面"},
+    {name:"烤三文鱼",emoji:"🐟",desc:"柠檬黄油烤三文鱼",search:"三文鱼"},
+    {name:"羊排",emoji:"🥩",desc:"迷迭香烤羊排，外焦里嫩",search:"羊排"},
+    {name:"培根蛋黄面",emoji:"🍝",desc:"卡邦尼意面，奶香浓郁",search:"意大利面"},
+    {name:"炸薯饼配培根",emoji:"🥓",desc:"西式早午餐，元气满满",search:"西餐"},
+    {name:"鸡肉凯撒沙拉",emoji:"🥗",desc:"烤鸡配帕玛森芝士脆面包",search:"西餐沙拉"},
+    {name:"蘑菇烩饭",emoji:"🍄",desc:"奶油蘑菇烩饭，浓郁醇香",search:"烩饭"},
+    {name:"焗龙虾",emoji:"🦞",desc:"芝士焗龙虾，奢华享受",search:"龙虾"},
+  ],
+  "东南亚":[
+    {name:"越南河粉",emoji:"🍜",desc:"清澈牛骨汤，配新鲜香草",search:"越南粉"},
+    {name:"泰式炒河粉",emoji:"🍜",desc:"酸甜辣炒粉，配花生碎",search:"泰国菜"},
+    {name:"椰汁咖喱鸡",emoji:"🍛",desc:"浓郁椰香咖喱，香辣诱人",search:"咖喱"},
+    {name:"冬阴功汤",emoji:"🍲",desc:"酸辣鲜美的泰式汤，开胃",search:"泰国菜"},
+    {name:"沙嗲串",emoji:"🍢",desc:"椰奶腌制烤串，蘸花生酱",search:"东南亚"},
+    {name:"叻沙",emoji:"🍜",desc:"新加坡特色椰浆汤底米粉",search:"叻沙"},
+    {name:"马来咖喱饭",emoji:"🍛",desc:"香料丰富，配炸鸡或虾",search:"咖喱饭"},
+    {name:"芒果糯米饭",emoji:"🥭",desc:"泰式甜品，椰奶浇汁",search:"泰国甜品"},
+    {name:"菠萝炒饭",emoji:"🍍",desc:"用菠萝壳装的炒饭，香甜",search:"菠萝炒饭"},
+    {name:"越南春卷",emoji:"🌯",desc:"新鲜蔬菜卷，清爽健康",search:"越南菜"},
+    {name:"猪脚饭（马来式）",emoji:"🐷",desc:"卤猪蹄配米饭，软糯入味",search:"猪脚饭"},
+    {name:"海南鸡饭",emoji:"🐔",desc:"嫩滑鸡肉配鸡油饭",search:"海南鸡饭"},
+  ],
 };
 
-// ══════════════════════════════════════════
+// 获取当前菜品池（含自定义）
+function getDishPool(category){
+  let pool;
+  if(category==="全部"){
+    pool = Object.values(DISH_DB).flat();
+  } else {
+    pool = DISH_DB[category] || [];
+  }
+  // 加入自定义菜品
+  const custom = customDishes.filter(d=> category==="全部" || d.category===category || d.category==="全部");
+  return [...pool, ...custom.map(d=>({name:d.name,emoji:"✨",desc:"自定义菜品",search:d.name}))];
+}
+
+// ══════════════════════════════
+//  初始化
+// ══════════════════════════════
+window.onload = () => {
+  if(!apiKey){
+    apiKey = prompt("🔑 请输入高德地图 Web 服务 API Key\n\n获取地址：https://lbs.amap.com/");
+    if(apiKey) localStorage.setItem("amap_api_key",apiKey);
+  }
+  buildPrefUI();
+  renderCustomDishList();
+  if(prefs.province){ document.getElementById("prefProvince").value=prefs.province; updateProvinceLabel(); }
+  getLocation();
+  drawWheel("全部");
+};
+
+// ══════════════════════════════
 //  定位
-// ══════════════════════════════════════════
-function getLocation() {
-  setLoc("spin","定位中...");
-  if (!navigator.geolocation) { setLoc("fail","浏览器不支持定位"); return; }
+// ══════════════════════════════
+function getLocation(){
+  setLoc("spin","自动定位中...");
+  if(!navigator.geolocation){ setLoc("fail","不支持定位"); return; }
   navigator.geolocation.getCurrentPosition(
-    pos => { loc={lat:pos.coords.latitude,lng:pos.coords.longitude}; setLoc("ok","定位成功 ·点击刷新"); },
-    ()  => { loc=null; setLoc("fail","定位失败 · 点击重试"); },
+    pos=>{ loc={lat:pos.coords.latitude,lng:pos.coords.longitude}; setLoc("ok","📍 定位成功"); },
+    ()=>{ loc=null; setLoc("fail","定位失败，可手动输入"); },
     {timeout:8000}
   );
 }
-function setLoc(status,text){
-  document.getElementById("locDot").className = "loc-dot " + (status==="ok"?"ok":status==="spin"?"spin":"fail");
-  document.getElementById("locText").textContent = text;
+function setLoc(s,t){
+  document.getElementById("locDot").className="loc-dot "+(s==="ok"?"ok":s==="spin"?"spin":"fail");
+  document.getElementById("locText").textContent=t;
 }
 
-// ══════════════════════════════════════════
-//  API Key 重置
-// ══════════════════════════════════════════
+// 手动输入地址
+function toggleManualInput(){
+  const row=document.getElementById("manualInputRow");
+  row.style.display=row.style.display==="none"?"flex":"none";
+}
+async function useManualAddr(){
+  const addr=document.getElementById("manualAddrInput").value.trim();
+  if(!addr){alert("请输入地址");return;}
+  setLoc("spin","解析地址...");
+  try{
+    const d=await fetch(`https://restapi.amap.com/v3/geocode/geo?key=${apiKey}&address=${encodeURIComponent(addr)}`).then(r=>r.json());
+    if(d.status==="1"&&d.geocodes?.length){
+      const[lng,lat]=d.geocodes[0].location.split(",").map(Number);
+      loc={lat,lng};
+      setLoc("ok","📍 "+addr.slice(0,16)+(addr.length>16?"...":""));
+      document.getElementById("manualInputRow").style.display="none";
+      document.getElementById("citySection").style.display="none";
+    } else { setLoc("fail","地址解析失败，请重试"); }
+  } catch(e){ setLoc("fail","请求失败："+e.message); }
+}
+
+// ══════════════════════════════
+//  API Key
+// ══════════════════════════════
 function resetApiKey(){
-  if(confirm("确定清除 API Key？")){
-    localStorage.removeItem("amap_api_key");
-    location.reload();
-  }
+  if(confirm("确定重置 API Key？")){localStorage.removeItem("amap_api_key");location.reload();}
 }
 
-// ══════════════════════════════════════════
-//  模式切换
-// ══════════════════════════════════════════
-function switchMode(mode,btn){
-  curMode = mode;
+// ══════════════════════════════
+//  模式 & 导航
+// ══════════════════════════════
+function switchMode(m,btn){
+  curMode=m;
   document.querySelectorAll(".mode-tab").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
 }
-
-// ══════════════════════════════════════════
-//  页面导航
-// ══════════════════════════════════════════
 function showTakeout(){
   document.getElementById("homeSection").style.display="none";
   document.getElementById("takeoutSection").style.display="block";
   document.getElementById("cookingSection").style.display="none";
-  if (!loc) document.getElementById("citySection").style.display="block";
-  searchCount=0;
+  if(!loc&&!manualCity) document.getElementById("citySection").style.display="block";
+  spinCount=0;
   document.getElementById("searchCounter").textContent="";
+  drawWheel(curCategory);
 }
 function showCooking(){
   document.getElementById("homeSection").style.display="none";
   document.getElementById("takeoutSection").style.display="none";
   document.getElementById("cookingSection").style.display="block";
   recipeCount=0;
-  document.getElementById("recipeCounter").textContent="";
 }
 function backHome(){
   document.getElementById("homeSection").style.display="block";
@@ -495,152 +627,203 @@ function backHome(){
   document.getElementById("cookingSection").style.display="none";
   document.getElementById("takeoutResult").innerHTML="";
   document.getElementById("recipeResult").innerHTML="";
-  searchCount=0; recipeCount=0;
+  spinCount=0; recipeCount=0;
 }
-
-// ══════════════════════════════════════════
-//  城市选择（定位失败时）
-// ══════════════════════════════════════════
 function pickCity(city,btn){
-  manualCity = city;
+  manualCity=city;
   document.querySelectorAll(".city-btn").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
   document.getElementById("citySection").style.display="none";
-  searchFood();
 }
 function useCustomCity(){
-  const v = document.getElementById("customCity").value.trim();
-  if(!v){alert("请输入城市名称");return;}
-  manualCity = v;
+  const v=document.getElementById("customCity").value.trim();
+  if(!v){alert("请输入城市");return;}
+  manualCity=v;
   document.getElementById("citySection").style.display="none";
-  searchFood();
 }
-
-// ══════════════════════════════════════════
-//  菜系标签
-// ══════════════════════════════════════════
-function pickCuisine(el,kw){
+function pickCuisine(el,cat){
   document.querySelectorAll(".ctag").forEach(t=>t.classList.remove("active"));
   el.classList.add("active");
-  curKeyword = kw;
+  curCategory=cat;
+  drawWheel(cat);
+  document.getElementById("wheelResult").style.display="none";
+  document.getElementById("takeoutResult").innerHTML="";
 }
 
-// ══════════════════════════════════════════
-//  搜索外卖（你的核心逻辑 + 升级版）
-// ══════════════════════════════════════════
-const CUISINE_MAP = [
-  {key:"🍲 火锅/串串",  tags:["火锅","串串","冒菜","麻辣烫"]},
-  {key:"🍖 烧烤/夜宵",  tags:["烧烤","烤肉","夜宵","撸串"]},
-  {key:"🍣 日料",       tags:["寿司","日式","日料","拉面","居酒屋"]},
-  {key:"🇰🇷 韩餐",      tags:["韩","炸鸡","石锅","泡菜"]},
-  {key:"🍜 粥粉面",     tags:["粥","粉","面","米线","螺蛳","河粉"]},
-  {key:"🥗 轻食/沙拉",  tags:["沙拉","轻食","素食","健康"]},
-  {key:"🍔 快餐",       tags:["快餐","盖饭","套餐","自助","便当"]},
-  {key:"🍗 烧腊/煲仔",  tags:["烧腊","烧鸭","叉烧","煲仔","烧味"]},
-  {key:"🍛 其他美食",   tags:[]},
+// ══════════════════════════════
+//  转盘
+// ══════════════════════════════
+const WHEEL_COLORS = [
+  "#ff6b81","#ff8fa3","#ffc0cb","#ffb347","#87ceeb",
+  "#98fb98","#dda0dd","#f0e68c","#ff9999","#b0e0e6",
+  "#ffcc99","#c8a2c8"
 ];
 
-function classifyCuisine(poi){
-  const t = (poi.name+" "+poi.type).toLowerCase();
-  for(const c of CUISINE_MAP){
-    if(c.tags.some(tag=>t.includes(tag))) return c.key;
-  }
-  return "🍛 其他美食";
+function drawWheel(category){
+  const canvas=document.getElementById("wheelCanvas");
+  const ctx=canvas.getContext("2d");
+  const W=canvas.width, R=W/2;
+
+  let pool=getDishPool(category).slice(0,12);
+  if(!pool.length) pool=[{name:"随机菜品",emoji:"🍽"}];
+  wheelItems=pool;
+
+  ctx.clearRect(0,0,W,W);
+  const seg=2*Math.PI/pool.length;
+
+  pool.forEach((item,i)=>{
+    const start=i*seg+wheelAngle;
+    const end=start+seg;
+    ctx.beginPath();
+    ctx.moveTo(R,R);
+    ctx.arc(R,R,R-2,start,end);
+    ctx.closePath();
+    ctx.fillStyle=WHEEL_COLORS[i%WHEEL_COLORS.length];
+    ctx.fill();
+    ctx.strokeStyle="white";
+    ctx.lineWidth=2;
+    ctx.stroke();
+
+    // 文字
+    ctx.save();
+    ctx.translate(R,R);
+    ctx.rotate(start+seg/2);
+    ctx.textAlign="right";
+    ctx.fillStyle="white";
+    ctx.font=`bold ${pool.length>8?11:13}px Inter,sans-serif`;
+    ctx.shadowColor="rgba(0,0,0,0.3)";
+    ctx.shadowBlur=3;
+    ctx.fillText(item.emoji+" "+item.name, R-10, 4);
+    ctx.restore();
+  });
 }
 
-async function searchFood(){
-  searchCount++;
-  if(searchCount>=4){
-    document.getElementById("giveupCount").textContent=searchCount;
+function spinWheel(){
+  if(isSpinning) return;
+  spinCount++;
+  if(spinCount>4){
+    document.getElementById("giveupCount").textContent=spinCount;
     openGiveup(); return;
   }
-  document.getElementById("searchCounter").textContent=`已换 ${searchCount} 次`;
-  document.getElementById("takeoutResult").innerHTML='<div class="loading">🔍 正在搜索附近美食...</div>';
+  document.getElementById("searchCounter").textContent=spinCount>1?`已转 ${spinCount} 次`:"";
+  document.getElementById("wheelResult").style.display="none";
+  document.getElementById("takeoutResult").innerHTML="";
 
+  isSpinning=true;
+  const pool=wheelItems;
+  const totalSpin = 3*2*Math.PI + Math.random()*2*Math.PI; // 3圈+随机
+  const duration = 3000;
+  const start=performance.now();
+  const startAngle=wheelAngle;
+
+  function animate(now){
+    const elapsed=now-start;
+    const t=Math.min(elapsed/duration,1);
+    const ease=1-Math.pow(1-t,4); // easeOutQuart
+    wheelAngle=startAngle+totalSpin*ease;
+    drawWheel(curCategory);
+
+    if(t<1){
+      requestAnimationFrame(animate);
+    } else {
+      isSpinning=false;
+      // 计算指针指向哪个格子（指针在顶部 -π/2）
+      const seg=2*Math.PI/pool.length;
+      const normalAngle = (((-wheelAngle - Math.PI/2) % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
+      const idx=Math.floor(normalAngle/seg) % pool.length;
+      curDish=pool[idx];
+      showDishResult(curDish);
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+function showDishResult(dish){
+  document.getElementById("wrName").textContent=dish.emoji+" "+dish.name;
+  document.getElementById("wrCat").textContent= curMode==="couple"?"💑 今晚就吃这个！":"🧑 今天就吃这个！";
+  document.getElementById("wrDesc").textContent=dish.desc||"";
+  document.getElementById("wheelResult").style.display="block";
+  document.getElementById("wheelResult").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+// ══════════════════════════════
+//  搜索附近餐厅
+// ══════════════════════════════
+async function searchNearby(){
+  if(!curDish){alert("请先转盘选菜");return;}
+  if(!loc&&!manualCity){
+    document.getElementById("citySection").style.display="block";
+    document.getElementById("citySection").scrollIntoView({behavior:"smooth"});
+    return;
+  }
+  document.getElementById("takeoutResult").innerHTML=`<div class="loading">🔍 搜索附近能点「${curDish.name}」的餐厅...</div>`;
   try{
     let url;
     if(loc){
-      // 定位成功：周边搜索（距离排序）
-      url=`https://restapi.amap.com/v3/place/around?key=${apiKey}&location=${loc.lng},${loc.lat}&keywords=${encodeURIComponent(curKeyword)}&types=050000|060000&radius=3000&sortrule=distance&offset=25&extensions=all`;
+      url=`https://restapi.amap.com/v3/place/around?key=${apiKey}&location=${loc.lng},${loc.lat}&keywords=${encodeURIComponent(curDish.search||curDish.name)}&types=050000|060000&radius=3000&sortrule=distance&offset=15&extensions=all`;
     } else {
-      // 无定位：城市文本搜索
-      url=`https://restapi.amap.com/v3/place/text?key=${apiKey}&keywords=${encodeURIComponent(curKeyword)}&city=${encodeURIComponent(manualCity)}&types=050000|060000&offset=25&extensions=all`;
+      url=`https://restapi.amap.com/v3/place/text?key=${apiKey}&keywords=${encodeURIComponent(curDish.search||curDish.name)}&city=${encodeURIComponent(manualCity)}&types=050000|060000&offset=15&extensions=all`;
     }
-    const data = await fetch(url).then(r=>r.json());
+    const data=await fetch(url).then(r=>r.json());
     if(data.status==="1"&&data.pois?.length){
-      allPois = data.pois;
-      renderPois(groupPois(filterPois(allPois)));
+      allPois=data.pois;
+      renderPoisForDish(allPois);
     } else {
-      document.getElementById("takeoutResult").innerHTML='<div class="empty">😕 没找到餐厅，换个关键词试试</div>';
+      document.getElementById("takeoutResult").innerHTML=`<div class="empty">😕 附近没找到「${curDish.name}」相关餐厅<br>换一道菜试试？</div>`;
     }
   } catch(e){
     document.getElementById("takeoutResult").innerHTML=`<div class="empty">❌ 搜索失败<br>${e.message}</div>`;
   }
 }
 
-function filterPois(pois){
-  return pois.filter(p=>!prefs.dislikes.some(d=>p.name.toLowerCase().includes(d)));
-}
-
-function groupPois(pois){
+function renderPoisForDish(pois){
+  const CUISINE_MAP=[
+    {key:"🍲 火锅/串串",tags:["火锅","串串","冒菜","麻辣烫"]},
+    {key:"🍖 烧烤",tags:["烧烤","烤肉","夜宵"]},
+    {key:"🍣 日料",tags:["寿司","日式","日料","拉面","居酒屋"]},
+    {key:"🍜 粥粉面",tags:["粥","粉","面","米线","螺蛳","河粉"]},
+    {key:"🍗 烧腊",tags:["烧腊","烧鸭","叉烧","煲仔"]},
+    {key:"🍛 其他",tags:[]},
+  ];
+  function classify(poi){
+    const t=(poi.name+" "+poi.type).toLowerCase();
+    for(const c of CUISINE_MAP) if(c.tags.some(tag=>t.includes(tag))) return c.key;
+    return "🍛 其他";
+  }
   const groups={};
-  pois.forEach(p=>{
-    const c=classifyCuisine(p);
-    if(!groups[c])groups[c]=[];
-    groups[c].push(p);
-  });
-  return groups;
-}
+  pois.forEach(p=>{const c=classify(p);if(!groups[c])groups[c]=[];groups[c].push(p);});
 
-function renderPois(groups){
-  let html="";
+  let html=`<div style="font-size:13px;font-weight:600;color:var(--pink);margin-bottom:12px;">📍 附近可以点到「${curDish.name}」的餐厅</div>`;
   for(const c in groups){
-    html+=`<div class="poi-group">
-      <div class="poi-group-title">${c}<span class="poi-count">${groups[c].length}家</span></div>`;
-    groups[c].slice(0,5).forEach(p=>{
-      const matchTag = getPoiMatch(p);
+    html+=`<div class="poi-group"><div class="poi-group-title">${c}<span class="poi-count">${groups[c].length}家</span></div>`;
+    groups[c].slice(0,4).forEach(p=>{
       html+=`<div class="poi-item">
         <div class="poi-name">${p.name}</div>
         <div class="poi-addr">📍 ${p.address||p.pname+p.cityname}</div>
-        ${matchTag?`<span class="badge b-match" style="display:inline-block;margin-bottom:8px;">${matchTag}</span>`:""}
         <div class="poi-actions">
-          <a href="https://waimai.meituan.com/search/${encodeURIComponent(p.name)}" target="_blank" class="a-mt">🛵 美团外卖</a>
-          <a href="https://www.ele.me/search/${encodeURIComponent(p.name)}" target="_blank" class="a-el">🥡 饿了么</a>
+          <a href="https://waimai.meituan.com/search/${encodeURIComponent(curDish.name)}" target="_blank" class="a-mt">🛵 美团点「${curDish.name}」</a>
+          <a href="https://www.ele.me/search/${encodeURIComponent(curDish.name)}" target="_blank" class="a-el">🥡 饿了么</a>
         </div>
       </div>`;
     });
     html+="</div>";
   }
-  document.getElementById("takeoutResult").innerHTML = html||'<div class="empty">没有匹配结果</div>';
+  document.getElementById("takeoutResult").innerHTML=html;
+  document.getElementById("takeoutResult").scrollIntoView({behavior:"smooth"});
 }
 
-function getPoiMatch(poi){
-  const tags=[];
-  if(curMode==="couple") tags.push("💑 适合两人");
-  if(prefs.spicy==="不吃辣"&&!/辣|川/.test(poi.name)) tags.push("✅ 不辣");
-  if(prefs.diet==="减脂中"&&/沙拉|轻食|蒸/.test(poi.name)) tags.push("🎯 符合减脂");
-  return tags.join(" · ");
-}
-
-// ══════════════════════════════════════════
-//  在家做 —— 菜谱推荐
-// ══════════════════════════════════════════
+// ══════════════════════════════
+//  在家做
+// ══════════════════════════════
 function showRecipes(){
   recipeCount++;
-  if(recipeCount>=4){
-    document.getElementById("giveupCount").textContent=recipeCount;
-    openGiveup(); return;
-  }
-  document.getElementById("recipeCounter").textContent=`已换 ${recipeCount} 次`;
-  allRecipes = getRecipes();
+  if(recipeCount>=4){document.getElementById("giveupCount").textContent=recipeCount;openGiveup();return;}
+  document.getElementById("recipeCounter").textContent=recipeCount>0?`已换 ${recipeCount} 次`:"";
+  allRecipes=getRecipes();
   renderRecipes(sortRecipes(allRecipes).slice(0,10));
 }
-
 function renderRecipes(list){
-  if(!list.length){
-    document.getElementById("recipeResult").innerHTML='<div class="empty">暂无菜谱，请在⚙️偏好中选择家乡</div>';
-    return;
-  }
+  if(!list.length){document.getElementById("recipeResult").innerHTML='<div class="empty">请先在⚙️偏好中选择家乡</div>';return;}
   let html="";
   list.forEach((r,i)=>{
     const m=getRecipeMatch(r);
@@ -654,45 +837,28 @@ function renderRecipes(list){
       </div>
       <button class="recipe-toggle" onclick="toggleDetail(${i},this)">📖 查看详细食谱 ▼</button>
       <div class="recipe-detail" id="rd${i}">
-        <div class="recipe-section">
-          <h4>🥘 食材</h4>
-          <ul>${r.ingredients.map(x=>`<li>${x}</li>`).join("")}</ul>
-        </div>
-        <div class="recipe-section">
-          <h4>👨‍🍳 做法</h4>
-          <ul>${r.steps.map((s,n)=>`<li><b>${n+1}.</b> ${s}</li>`).join("")}</ul>
-        </div>
+        <div class="recipe-section"><h4>🥘 食材</h4><ul>${r.ingredients.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+        <div class="recipe-section"><h4>👨‍🍳 做法</h4><ul>${r.steps.map((s,n)=>`<li><b>${n+1}.</b> ${s}</li>`).join("")}</ul></div>
         ${r.tips?`<div class="recipe-tip">💡 ${r.tips}</div>`:""}
       </div>
     </div>`;
   });
   document.getElementById("recipeResult").innerHTML=html;
 }
-
 function toggleDetail(i,btn){
   const d=document.getElementById("rd"+i);
   d.classList.toggle("open");
   btn.textContent=d.classList.contains("open")?"📖 收起食谱 ▲":"📖 查看详细食谱 ▼";
 }
-
 function sortRecipes(list){
-  return [...list].sort((a,b)=>{
+  return[...list].sort((a,b)=>{
     let sa=0,sb=0;
     if(prefs.spicy==="不吃辣"){sa-=a.spicy*3;sb-=b.spicy*3;}
-    if(prefs.diet==="减脂中"){
-      if(/蒸|拌|煮/.test(a.name))sa+=4;
-      if(/蒸|拌|煮/.test(b.name))sb+=4;
-      if(/炸|红烧|回锅/.test(a.name))sa-=2;
-      if(/炸|红烧|回锅/.test(b.name))sb-=2;
-    }
-    prefs.dislikes.forEach(d=>{
-      if(a.ingredients.some(x=>x.includes(d)))sa-=10;
-      if(b.ingredients.some(x=>x.includes(d)))sb-=10;
-    });
+    if(prefs.diet==="减脂中"){if(/蒸|拌|煮/.test(a.name))sa+=4;if(/蒸|拌|煮/.test(b.name))sb+=4;}
+    prefs.dislikes.forEach(d=>{if(a.ingredients.some(x=>x.includes(d)))sa-=10;if(b.ingredients.some(x=>x.includes(d)))sb-=10;});
     return sb-sa;
   });
 }
-
 function getRecipeMatch(r){
   const t=[];
   if(curMode==="couple"&&r.difficulty==="简单")t.push("💑 适合一起做");
@@ -702,65 +868,46 @@ function getRecipeMatch(r){
   return t.join(" · ");
 }
 
-// ══════════════════════════════════════════
+// ══════════════════════════════
 //  选择困难弹窗
-// ══════════════════════════════════════════
+// ══════════════════════════════
 function openGiveup(){document.getElementById("giveupModal").classList.add("show");}
 function closeGiveup(){document.getElementById("giveupModal").classList.remove("show");}
-function restartAll(){closeGiveup();searchCount=0;recipeCount=0;backHome();}
-function randomPick(){
-  closeGiveup();
-  searchCount=0;recipeCount=0;
+function restartAll(){closeGiveup();spinCount=0;recipeCount=0;backHome();}
+function randomFinal(){
+  closeGiveup();spinCount=0;recipeCount=0;
   if(document.getElementById("cookingSection").style.display!=="none"){
     const r=allRecipes[Math.floor(Math.random()*allRecipes.length)];
     renderRecipes([r]);
-    document.getElementById("recipeCounter").textContent="🎲 已随机帮你选了一道！";
   } else {
-    const p=allPois[Math.floor(Math.random()*allPois.length)];
-    if(p)renderPois({"🎲 随机推荐":[p]});
-    document.getElementById("searchCounter").textContent="🎲 已随机帮你选了一家！";
+    const pool=getDishPool(curCategory);
+    curDish=pool[Math.floor(Math.random()*pool.length)];
+    showDishResult(curDish);
+    document.getElementById("searchCounter").textContent="🎲 随机帮你选了！";
   }
 }
 
-// ══════════════════════════════════════════
+// ══════════════════════════════
 //  偏好设置
-// ══════════════════════════════════════════
+// ══════════════════════════════
 function openSettings(){document.getElementById("settingsModal").classList.add("show");}
 function closeSettings(){document.getElementById("settingsModal").classList.remove("show");}
-
 function buildPrefUI(){
   mkBtns("prefDislikes",["香菜","内脏","海鲜","辣椒","洋葱","芹菜","茄子","苦瓜"],prefs.dislikes,true);
   mkBtns("prefSpicy",["不吃辣","微辣","中辣","特辣"],[prefs.spicy],false);
   mkBtns("prefDiet",["正常饮食","减脂中","健身增肌","低碳饮食"],[prefs.diet],false);
-  if(prefs.province)document.getElementById("prefProvince").value=prefs.province;
+  if(prefs.province) document.getElementById("prefProvince").value=prefs.province;
 }
-
 function mkBtns(id,opts,selected,multi){
-  const box=document.getElementById(id);
-  box.innerHTML="";
+  const box=document.getElementById(id); box.innerHTML="";
   opts.forEach(o=>{
-    const b=document.createElement("button");
-    b.className="pref-btn"+(selected.includes(o)?" selected":"");
-    b.textContent=o;
-    b.onclick=()=>{
-      if(multi)b.classList.toggle("selected");
-      else{box.querySelectorAll(".pref-btn").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");}
-    };
+    const b=document.createElement("button"); b.className="pref-btn"+(selected.includes(o)?" selected":""); b.textContent=o;
+    b.onclick=()=>{if(multi)b.classList.toggle("selected");else{box.querySelectorAll(".pref-btn").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");}};
     box.appendChild(b);
   });
 }
-
-function quickSaveProvince(){
-  prefs.province=document.getElementById("prefProvince").value;
-  localStorage.setItem("prefs",JSON.stringify(prefs));
-  updateProvinceLabel();
-}
-
-function updateProvinceLabel(){
-  const label=prefs.province?prefs.province+"菜":"家常菜";
-  document.getElementById("provinceLabel").textContent=label;
-}
-
+function quickSaveProvince(){prefs.province=document.getElementById("prefProvince").value;localStorage.setItem("prefs",JSON.stringify(prefs));updateProvinceLabel();}
+function updateProvinceLabel(){document.getElementById("provinceLabel").textContent=prefs.province?prefs.province+"菜":"家常菜";}
 function saveSettings(){
   prefs.dislikes=[...document.querySelectorAll("#prefDislikes .selected")].map(b=>b.textContent);
   prefs.spicy=document.querySelector("#prefSpicy .selected")?.textContent||"微辣";
@@ -769,114 +916,81 @@ function saveSettings(){
   localStorage.setItem("prefs",JSON.stringify(prefs));
   updateProvinceLabel();
   closeSettings();
-  alert("✅ 偏好已保存！下次推荐更精准~");
+  drawWheel(curCategory);
+  alert("✅ 偏好已保存！");
 }
 
-// ══════════════════════════════════════════
+// ══════════════════════════════
+//  自定义菜品
+// ══════════════════════════════
+function addCustomDish(){
+  const name=document.getElementById("newDishName").value.trim();
+  const cat=document.getElementById("newDishCat").value;
+  if(!name){alert("请输入菜品名称");return;}
+  customDishes.push({name,category:cat});
+  localStorage.setItem("customDishes",JSON.stringify(customDishes));
+  document.getElementById("newDishName").value="";
+  renderCustomDishList();
+  drawWheel(curCategory);
+  alert(`✅ 「${name}」已添加！`);
+}
+function deleteCustomDish(i){
+  customDishes.splice(i,1);
+  localStorage.setItem("customDishes",JSON.stringify(customDishes));
+  renderCustomDishList();
+  drawWheel(curCategory);
+}
+function renderCustomDishList(){
+  const box=document.getElementById("customDishList");
+  if(!customDishes.length){box.innerHTML='<div style="font-size:12px;color:#bbb;padding:6px;">暂无自定义菜品</div>';return;}
+  box.innerHTML=customDishes.map((d,i)=>`
+    <div class="custom-dish-item">
+      <span>✨ ${d.name} <span style="color:#bbb;font-size:11px;">(${d.category})</span></span>
+      <button class="del-dish-btn" onclick="deleteCustomDish(${i})">✕</button>
+    </div>`).join("");
+}
+
+// ══════════════════════════════
 //  菜谱数据库
-// ══════════════════════════════════════════
+// ══════════════════════════════
 function getRecipes(){
   const p=prefs.province||"通用";
   const DB={
     "川渝":[
-      {name:"鱼香肉丝",time:25,difficulty:"简单",spicy:2,province:"川渝",
-       ingredients:["里脊肉 200g","木耳 50g","胡萝卜 1根","青椒 1个","葱姜蒜 适量","豆瓣酱 1勺"],
-       steps:["肉切丝加料酒盐淀粉腌10分钟","木耳泡发切丝，胡萝卜青椒切丝","调鱼香汁：糖2勺醋1勺酱油1勺淀粉","热油滑炒肉丝变色盛出","炒香葱姜蒜加豆瓣酱出红油","下配菜翻炒，回锅肉丝，淋鱼香汁大火收汁"],
-       tips:"糖醋2:1是关键，豆瓣酱要炒出红油才香"},
-      {name:"麻婆豆腐",time:20,difficulty:"简单",spicy:3,province:"川渝",
-       ingredients:["嫩豆腐 1盒","牛肉末 100g","豆瓣酱 2勺","花椒粉 1勺","葱姜蒜"],
-       steps:["豆腐切块焯水","炒牛肉末变色","加豆瓣酱炒红油","加水烧开放豆腐煮5分钟","水淀粉勾芡，撒花椒粉葱花"],
-       tips:"豆腐先焯水更嫩，花椒粉最后撒才香"},
-      {name:"宫保鸡丁",time:20,difficulty:"中等",spicy:2,province:"川渝",
-       ingredients:["鸡胸肉 250g","花生米 80g","干辣椒 10个","花椒 1勺","葱姜蒜"],
-       steps:["鸡肉切丁腌制","花生炸酥备用","调宫保汁：糖2醋1酱油1","滑炒鸡丁盛出","爆香干辣椒花椒","回锅鸡丁淋宫保汁加花生快炒"],
-       tips:"花生最后放才脆"},
-      {name:"回锅肉",time:35,difficulty:"中等",spicy:2,province:"川渝",
-       ingredients:["五花肉 300g","青蒜 3根","豆瓣酱 2勺","豆豉 1勺","青红椒各1个"],
-       steps:["五花肉煮至8成熟切薄片","不放油煸出猪油","加豆瓣酱豆豉炒红油","下青椒蒜白翻炒","回锅肉翻匀加蒜叶"],
-       tips:"豆瓣酱炒出红油是关键"},
-      {name:"水煮肉片",time:25,difficulty:"中等",spicy:3,province:"川渝",
-       ingredients:["里脊肉 250g","白菜 200g","豆芽 100g","干辣椒 15个","花椒 2勺","豆瓣酱 2勺"],
-       steps:["肉片加蛋清淀粉腌制","白菜豆芽焯水铺底","炒豆瓣酱加水烧开","肉片下锅煮熟盛出","铺干辣椒花椒浇热油"],
-       tips:"最后浇热油是灵魂"},
+      {name:"鱼香肉丝",time:25,difficulty:"简单",spicy:2,province:"川渝",ingredients:["里脊肉 200g","木耳 50g","胡萝卜 1根","青椒 1个","葱姜蒜","豆瓣酱 1勺"],steps:["肉切丝腌制10分钟","木耳泡发切丝，蔬菜切丝","调鱼香汁：糖2醋1酱油1淀粉","热油滑炒肉丝盛出","炒香葱姜蒜豆瓣酱出红油","下配菜翻炒回锅肉丝淋鱼香汁"],tips:"糖醋2:1是关键"},
+      {name:"麻婆豆腐",time:20,difficulty:"简单",spicy:3,province:"川渝",ingredients:["嫩豆腐 1盒","牛肉末 100g","豆瓣酱 2勺","花椒粉 1勺","葱姜蒜"],steps:["豆腐切块焯水","炒牛肉末变色","加豆瓣酱炒红油","加水烧开放豆腐煮5分钟","水淀粉勾芡撒花椒粉葱花"],tips:"花椒粉最后撒才香"},
+      {name:"宫保鸡丁",time:20,difficulty:"中等",spicy:2,province:"川渝",ingredients:["鸡胸肉 250g","花生米 80g","干辣椒 10个","花椒 1勺","葱姜蒜"],steps:["鸡肉切丁腌制","花生炸酥","调宫保汁","滑炒鸡丁盛出","爆香干辣椒花椒","回锅鸡丁淋汁加花生"],tips:"花生最后放才脆"},
+      {name:"回锅肉",time:35,difficulty:"中等",spicy:2,province:"川渝",ingredients:["五花肉 300g","青蒜 3根","豆瓣酱 2勺","豆豉 1勺","青红椒各1个"],steps:["五花肉煮至8成熟切薄片","不放油煸出猪油","加豆瓣酱豆豉炒红油","下青椒蒜白翻炒","回锅肉翻匀加蒜叶"],tips:"豆瓣酱炒出红油是关键"},
+      {name:"水煮肉片",time:25,difficulty:"中等",spicy:3,province:"川渝",ingredients:["里脊肉 250g","白菜 200g","豆芽 100g","干辣椒 15个","花椒 2勺","豆瓣酱 2勺"],steps:["肉片加蛋清淀粉腌制","白菜豆芽焯水铺底","炒豆瓣酱加水烧开","肉片下锅煮熟","铺干辣椒花椒浇热油"],tips:"最后浇热油是灵魂"},
     ],
     "广东":[
-      {name:"白切鸡",time:40,difficulty:"简单",spicy:0,province:"广东",
-       ingredients:["三黄鸡 1只","姜 50g","葱 2根","料酒","蒸鱼豉油"],
-       steps:["鸡肚塞姜葱","开水加姜葱料酒下鸡","烧开小火15分钟","焖15分钟捞出过冰水","切块蘸料上桌"],
-       tips:"冰水让鸡皮爽滑Q弹"},
-      {name:"蒜蓉蒸虾",time:15,difficulty:"简单",spicy:0,province:"广东",
-       ingredients:["基围虾 500g","蒜 1头","粉丝 1把","蒸鱼豉油 2勺","小米椒 2个"],
-       steps:["虾剪须开背","粉丝泡软铺底","金银蒜铺虾上","大火蒸5分钟","淋豉油撒葱花小米椒"],
-       tips:"不要蒸太久，虾肉会老"},
-      {name:"干炒牛河",time:15,difficulty:"中等",spicy:0,province:"广东",
-       ingredients:["河粉 400g","牛肉 150g","豆芽 100g","韭黄 50g","生抽老抽"],
-       steps:["牛肉加小苏打生抽油腌制","河粉撕散备用","大火滑炒牛肉7成盛出","下河粉翻炒上色","加豆芽韭黄，回锅牛肉大火炒匀"],
-       tips:"全程大火，小苏打让牛肉嫩"},
-      {name:"清蒸鲈鱼",time:20,difficulty:"简单",spicy:0,province:"广东",
-       ingredients:["鲈鱼 1条","姜 30g","葱 2根","蒸鱼豉油 3勺","料酒"],
-       steps:["鱼划刀抹料酒盐腌10分钟","姜葱铺鱼身","水开大火蒸8分钟","倒掉蒸水重铺姜葱","淋豉油浇热油"],
-       tips:"蒸出的水要倒掉去腥"},
+      {name:"白切鸡",time:40,difficulty:"简单",spicy:0,province:"广东",ingredients:["三黄鸡 1只","姜 50g","葱 2根","料酒","蒸鱼豉油"],steps:["鸡肚塞姜葱","开水加姜葱料酒下鸡","烧开小火15分钟","焖15分钟捞出过冰水","切块调蘸料"],tips:"冰水让鸡皮爽滑"},
+      {name:"蒜蓉蒸虾",time:15,difficulty:"简单",spicy:0,province:"广东",ingredients:["基围虾 500g","蒜 1头","粉丝 1把","蒸鱼豉油 2勺"],steps:["虾剪须开背","粉丝泡软铺底","金银蒜铺虾","大火蒸5分钟","淋豉油撒葱花"],tips:"不要蒸太久"},
+      {name:"干炒牛河",time:15,difficulty:"中等",spicy:0,province:"广东",ingredients:["河粉 400g","牛肉 150g","豆芽 100g","韭黄 50g","生抽老抽"],steps:["牛肉加小苏打腌制","河粉撕散","大火滑炒牛肉盛出","下河粉翻炒上色","加豆芽韭黄回锅牛肉炒匀"],tips:"全程大火快炒"},
+      {name:"清蒸鲈鱼",time:20,difficulty:"简单",spicy:0,province:"广东",ingredients:["鲈鱼 1条","姜 30g","葱 2根","蒸鱼豉油 3勺"],steps:["鱼划刀腌制","姜葱铺鱼","水开大火蒸8分钟","倒掉蒸水重铺姜葱","淋豉油浇热油"],tips:"蒸出的水要倒掉去腥"},
     ],
     "广西":[
-      {name:"柠檬鸭",time:50,difficulty:"中等",spicy:1,province:"广西",
-       ingredients:["鸭肉 500g","酸柠檬 3个","酸姜 50g","紫苏 20g","生抽 2勺","蒜"],
-       steps:["鸭肉斩块焯水","热油爆香蒜姜","下鸭肉翻炒金黄","加酸柠檬片酸姜","加水没过焖30分钟","收汁加紫苏翻炒"],
-       tips:"酸柠檬是广西柠檬鸭的灵魂，紫苏必不可少"},
-      {name:"螺蛳粉（家庭版）",time:30,difficulty:"简单",spicy:2,province:"广西",
-       ingredients:["螺蛳粉料包 1套","腐竹","酸笋","花生","木耳","葱花"],
-       steps:["按包装煮汤底","腐竹花生炸至金黄","酸笋木耳焯水","粉煮软捞出","加汤底和配菜撒葱花辣椒油"],
-       tips:"汤底要浓才够味"},
-      {name:"白斩鸡配紫苏蘸料",time:35,difficulty:"简单",spicy:0,province:"广西",
-       ingredients:["土鸡 半只","紫苏 50g","蒜 5瓣","小米椒 3个","生抽","柠檬汁"],
-       steps:["土鸡冷水下锅煮熟","过冰水切块","紫苏蒜小米椒剁碎","加生抽柠檬汁调蘸料","鸡肉蘸料食用"],
-       tips:"广西白斩鸡的灵魂是紫苏蘸料"},
-      {name:"烤猪蹄",time:90,difficulty:"中等",spicy:1,province:"广西",
-       ingredients:["猪蹄 1只","南乳 2块","蒜 1头","五香粉","蜂蜜 2勺"],
-       steps:["猪蹄焯水洗净","南乳蒜五香粉涂抹腌2小时","烤箱200度烤30分钟","刷蜂蜜再烤20分钟","切块食用"],
-       tips:"多刷几次蜂蜜颜色更漂亮，外皮更脆"},
-      {name:"田螺焖鸭",time:60,difficulty:"中等",spicy:1,province:"广西",
-       ingredients:["田螺 500g","鸭肉 300g","紫苏 30g","蒜 1头","豆豉 1勺","小米椒"],
-       steps:["田螺提前吐沙洗净","鸭肉斩块焯水","热油爆香蒜豆豉小米椒","下鸭肉翻炒","加田螺翻炒","加水焖煮25分钟","加紫苏收汁"],
-       tips:"紫苏是广西焖田螺必备，田螺要充分吐沙"},
+      {name:"柠檬鸭",time:50,difficulty:"中等",spicy:1,province:"广西",ingredients:["鸭肉 500g","酸柠檬 3个","酸姜 50g","紫苏 20g","蒜"],steps:["鸭肉斩块焯水","爆香蒜姜","下鸭肉翻炒金黄","加酸柠檬酸姜","加水焖30分钟","收汁加紫苏"],tips:"紫苏是灵魂"},
+      {name:"螺蛳粉（家庭版）",time:30,difficulty:"简单",spicy:2,province:"广西",ingredients:["螺蛳粉料包 1套","腐竹","酸笋","花生","木耳"],steps:["按包装煮汤底","腐竹花生炸至金黄","酸笋木耳焯水","粉煮软","加汤底配菜葱花辣椒油"],tips:"汤底要浓才够味"},
+      {name:"白斩鸡蘸紫苏酱",time:35,difficulty:"简单",spicy:0,province:"广西",ingredients:["土鸡 半只","紫苏 50g","蒜 5瓣","小米椒 3个","生抽柠檬汁"],steps:["土鸡冷水煮熟过冰水切块","紫苏蒜小米椒剁碎","加生抽柠檬汁调酱","蘸料食用"],tips:"紫苏蘸料是广西特色"},
+      {name:"老友猪杂粉",time:30,difficulty:"中等",spicy:2,province:"广西",ingredients:["猪杂 200g","米粉 200g","豆豉 1勺","酸笋 50g","小米椒 5个","番茄"],steps:["猪杂焯水切片","爆香豆豉小米椒","下番茄酸笋炒香","加水烧开","下猪杂煮熟","放米粉煮软"],tips:"豆豉是老友粉的灵魂"},
+      {name:"烤猪蹄",time:90,difficulty:"中等",spicy:1,province:"广西",ingredients:["猪蹄 1只","南乳 2块","蒜 1头","五香粉","蜂蜜 2勺"],steps:["猪蹄焯水","南乳蒜五香粉涂抹腌2小时","200度烤30分钟","刷蜂蜜再烤20分钟"],tips:"多刷几次蜂蜜皮更脆"},
     ],
     "江浙沪":[
-      {name:"红烧肉",time:60,difficulty:"中等",spicy:0,province:"江浙沪",
-       ingredients:["五花肉 500g","冰糖 30g","八角 2个","桂皮","生抽 3勺","老抽 1勺"],
-       steps:["五花肉切块焯水","炒冰糖至焦糖色","下肉块上色","加调料和开水小火炖40分钟","大火收汁"],
-       tips:"炖到筷子能轻松插入即可"},
-      {name:"糖醋小排",time:40,difficulty:"中等",spicy:0,province:"江浙沪",
-       ingredients:["小排 500g","糖 4勺","醋 3勺","生抽 2勺","料酒"],
-       steps:["小排焯水","两面煎至金黄","加水炖20分钟","倒糖醋汁大火收汁至浓稠"],
-       tips:"糖醋比4:3:2最经典"},
+      {name:"红烧肉",time:60,difficulty:"中等",spicy:0,province:"江浙沪",ingredients:["五花肉 500g","冰糖 30g","八角","桂皮","生抽 3勺","老抽"],steps:["五花肉切块焯水","炒冰糖至焦糖色","下肉块上色","加调料开水小火炖40分钟","大火收汁"],tips:"炖到筷子能轻松插入"},
+      {name:"糖醋小排",time:40,difficulty:"中等",spicy:0,province:"江浙沪",ingredients:["小排 500g","糖 4勺","醋 3勺","生抽 2勺"],steps:["小排焯水","两面煎至金黄","加水炖20分钟","倒糖醋汁收汁"],tips:"糖醋4:3:2最经典"},
+      {name:"清蒸大闸蟹",time:20,difficulty:"简单",spicy:0,province:"江浙沪",ingredients:["大闸蟹 4只","姜 30g","醋","生姜末"],steps:["螃蟹刷洗干净","腹部朝上上锅","水开大火蒸15分钟","调姜醋汁蘸食"],tips:"肚子朝上蒸防止蟹黄流失"},
     ],
-    "湖南":[
-      {name:"剁椒鱼头",time:30,difficulty:"中等",spicy:3,province:"湖南",
-       ingredients:["鱼头 1个","剁椒 100g","姜","葱","蒸鱼豉油"],
-       steps:["鱼头腌制","姜铺底，鱼头摆上","铺满剁椒淋油","大火蒸10分钟","淋豉油浇热油"],
-       tips:"剁椒不要买太咸的"},
-      {name:"小炒黄牛肉",time:20,difficulty:"简单",spicy:2,province:"湖南",
-       ingredients:["牛肉 250g","青椒 2个","小米椒 5个","姜蒜"],
-       steps:["牛肉逆纹切片腌制","大火滑炒变色盛出","爆香姜蒜小米椒","下青椒翻炒","回锅牛肉调味"],
-       tips:"逆纹切+大火是嫩滑关键"},
+    "东北":[
+      {name:"锅包肉",time:30,difficulty:"中等",spicy:0,province:"东北",ingredients:["猪里脊 300g","淀粉","醋 3勺","糖 2勺","胡萝卜丝"],steps:["肉切片裹淀粉","油炸至金黄酥脆","调糖醋汁","锅中下胡萝卜丝","倒入糖醋汁","放肉片翻匀"],tips:"要炸两遍才酥脆"},
+      {name:"东北酸菜炖粉条",time:40,difficulty:"简单",spicy:0,province:"东北",ingredients:["酸菜 300g","粉条 100g","五花肉 200g","葱姜"],steps:["五花肉切片炒出油","下葱姜炒香","加酸菜翻炒","加水烧开","下粉条炖20分钟","调味"],tips:"酸菜提前清洗去多余酸味"},
     ],
     "通用":[
-      {name:"番茄炒蛋",time:10,difficulty:"简单",spicy:0,province:"通用",
-       ingredients:["鸡蛋 3个","番茄 2个","糖 1勺","盐 适量"],
-       steps:["蛋打散加盐","番茄切块","炒蛋半熟盛出","炒番茄出汁加糖","回锅蛋翻匀"],
-       tips:"加一点糖提鲜"},
-      {name:"青椒土豆丝",time:15,difficulty:"简单",spicy:1,province:"通用",
-       ingredients:["土豆 2个","青椒 1个","蒜 3瓣","醋 1勺","盐"],
-       steps:["土豆切丝泡水","爆香蒜末","下土豆丝加醋盐","下青椒炒匀"],
-       tips:"泡水去淀粉才脆"},
-      {name:"蒜蓉西兰花",time:10,difficulty:"简单",spicy:0,province:"通用",
-       ingredients:["西兰花 1个","蒜 5瓣","蚝油 1勺","盐"],
-       steps:["西兰花焯水1分钟","爆香蒜末","下西兰花加蚝油盐翻炒"],
-       tips:"焯水加盐加油颜色更绿"},
-      {name:"蛋炒饭",time:10,difficulty:"简单",spicy:0,province:"通用",
-       ingredients:["隔夜米饭 2碗","鸡蛋 2个","葱 1根","生抽 1勺","盐"],
-       steps:["蛋打散","热油炒蛋碎盛出","下米饭翻炒散开","加生抽盐炒匀","回锅蛋加葱花翻匀"],
-       tips:"隔夜饭炒出来更粒粒分明"},
+      {name:"番茄炒蛋",time:10,difficulty:"简单",spicy:0,province:"通用",ingredients:["鸡蛋 3个","番茄 2个","糖 1勺"],steps:["蛋打散加盐","番茄切块","炒蛋半熟盛出","炒番茄出汁加糖","回锅蛋翻匀"],tips:"加一点糖提鲜"},
+      {name:"青椒土豆丝",time:15,difficulty:"简单",spicy:1,province:"通用",ingredients:["土豆 2个","青椒 1个","蒜","醋"],steps:["土豆切丝泡水","爆香蒜末","下土豆丝加醋","下青椒炒匀"],tips:"泡水去淀粉才脆"},
+      {name:"蒜蓉西兰花",time:10,difficulty:"简单",spicy:0,province:"通用",ingredients:["西兰花 1个","蒜 5瓣","蚝油"],steps:["西兰花焯水1分钟","爆香蒜末","下西兰花加蚝油"],tips:"焯水加盐加油颜色更绿"},
+      {name:"蛋炒饭",time:10,difficulty:"简单",spicy:0,province:"通用",ingredients:["隔夜米饭 2碗","鸡蛋 2个","葱","生抽"],steps:["蛋打散","炒蛋碎盛出","下米饭翻炒散开","加生抽盐","回锅蛋加葱花"],tips:"隔夜饭粒粒分明"},
+      {name:"酱牛肉",time:90,difficulty:"简单",spicy:0,province:"通用",ingredients:["牛腱肉 500g","生抽","老抽","八角","桂皮","香叶"],steps:["牛肉冷水焯水","加所有调料加水没过牛肉","大火烧开转小火炖60分钟","自然冷却切片"],tips:"冷透后切片更整齐"},
     ],
   };
   return DB[p]||DB["通用"];
